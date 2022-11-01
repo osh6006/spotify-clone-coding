@@ -82,7 +82,7 @@ const Navbar = () => {
           )}
         </nav>
       ) : (
-        <nav className="w-full flex items-center justify-end bg-zinc-900 py-2 px-7 space-x-4 ">
+        <nav className="w-full flex items-center justify-end bg-neutral-900 py-2 px-7 space-x-4 ">
           <Link
             href="/enter"
             className="text-slate-400 hover:text-white hover:font-extrabold"
