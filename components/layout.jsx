@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="w-full space-y-10">
+      <div className="w-full space-y-10 bg-zinc-800">
         <Navbar />
         {children}
       </div>
