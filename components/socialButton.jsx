@@ -13,7 +13,7 @@ const SocialButton = ({
     <button
       {...rest}
       className={cls(
-        `${color} ${textColor} w-full rounded-3xl py-3 px-16 font-bold hover:scale-[1.05] cursor-pointer ${
+        `${color} ${textColor} w-full rounded-3xl py-3 px-16 font-bold hover:scale-[1.05] cursor-pointer tracking-widest ${
           outline ? "border border-slate-500" : ""
         }`
       )}
