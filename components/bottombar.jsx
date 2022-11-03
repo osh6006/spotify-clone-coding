@@ -11,7 +11,7 @@ const Bottombar = () => {
       {user ? null : (
         <div
           onClick={() => router.push("/enter")}
-          className="w-full h-[66px] fixed flex items-center justify-between px-10 py-4 bottom-0  bg-gradient-to-r from-fuchsia-700 to-blue-400 cursor-pointer"
+          className="w-full h-[66px] align-baseline fixed flex items-center justify-between px-10 py-4 bottom-0  bg-gradient-to-r from-fuchsia-700 to-blue-400 cursor-pointer"
         >
           <div className="text-white">
             <p className="text-sm">SPOTIFY 미리 듣기</p>

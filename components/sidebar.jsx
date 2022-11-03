@@ -43,7 +43,7 @@ const Sidebar = () => {
       ref={sidebarRef}
       style={{ width: sidebarWidth }}
       onMouseDown={e => e.preventDefault()}
-      className="flex sticky top-0 h-screen max-w-[400px] min-w-[200px] bg-black"
+      className="flex sticky h-screen top-0  max-w-[400px] min-w-[200px] bg-black"
     >
       <div className="flex flex-col p-6 gap-4">
         <Link href="/">
@@ -160,7 +160,7 @@ const Sidebar = () => {
         className="w-[10px] h-full cursor-w-resize resize-x hover:w-[3px] hover:bg-slate-500"
         onMouseDown={startResizing}
       />
-      {/*my play list link */}
+      {/*my play list link  */}
     </aside>
   );
 };
