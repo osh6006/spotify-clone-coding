@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useRef, useState } from "react";
-import { cls } from "../libs/util";
+import { cls } from "../libs/client/util";
 
 const Sidebar = () => {
   const router = useRouter();

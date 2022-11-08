@@ -1,4 +1,4 @@
-const Input = ({ label, name, kind = "text", ...rest }) => {
+const Input = ({ label, name, kind = "text", register, errors, ...rest }) => {
   return (
     <div>
       <label
@@ -8,12 +8,41 @@ const Input = ({ label, name, kind = "text", ...rest }) => {
         {label}
       </label>
       {kind === "text" ? (
-        <div className="rounded-md relative flex  items-center shadow-sm">
+        <div
+          className={`rounded-md relative flex flex-col shadow-sm space-y-1`}
+        >
           <input
             id={name}
+            {...register}
             {...rest}
-            className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-xs shadow-sm placeholder-gray-400 focus:outline-none focus:ring-black focus:border-black"
+            className={`appearance-none w-full px-3 py-2 border border-gray-300 rounded-xs shadow-sm placeholder-gray-400
+            ${
+              errors?.email
+                ? " border-red-600 focus:outline-red-500 "
+                : "focus:ring-black focus:border-black"
+            }
+            `}
           />
+          <div className="text-sm text-red-500">{errors?.email?.message}</div>
+        </div>
+      ) : null}
+      {kind === "password" ? (
+        <div className="rounded-md relative flex flex-col shadow-sm space-y-1">
+          <input
+            id={name}
+            {...register}
+            {...rest}
+            className={`appearance-none w-full px-3 py-2 border border-gray-300 rounded-xs shadow-sm placeholder-gray-400 focus:outline-none
+            ${
+              errors?.password
+                ? "border-red-600 focus:ring-red-500 focus:border-red-500 focus:rounded-sm"
+                : "focus:ring-black focus:border-black"
+            }
+            `}
+          />
+          <div className="text-sm text-red-500">
+            {errors?.password?.message}
+          </div>
         </div>
       ) : null}
       {kind === "price" ? (
@@ -23,6 +52,7 @@ const Input = ({ label, name, kind = "text", ...rest }) => {
           </div>
           <input
             id={name}
+            {...register}
             {...rest}
             className="appearance-none pl-7 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
           />
@@ -38,6 +68,7 @@ const Input = ({ label, name, kind = "text", ...rest }) => {
           </span>
           <input
             id={name}
+            {...register}
             {...rest}
             className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md rounded-l-none shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
           />
@@ -66,6 +97,7 @@ const Input = ({ label, name, kind = "text", ...rest }) => {
           <input
             placeholder="어떤 음악을 듣고 싶으세요?"
             id={name}
+            {...register}
             {...rest}
             className="appearance-none pl-10 w-full px-10 py-2 border text-sm border-gray-300 rounded-3xl shadow-sm placeholder-gray-400 focus:outline-none"
           />
