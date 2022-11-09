@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { cls } from "../libs/util";
+import { cls } from "../libs/client/util";
 
 const CategoryCard = ({ color = "bg-green-800", title = "최신음악" }) => {
   return (

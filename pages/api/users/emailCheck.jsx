@@ -4,7 +4,6 @@ import withHandler from "../../../libs/server/withHandler";
 async function handler(req, res) {
   const email = req.body;
   let user;
-  console.log(email);
   if (email) {
     user = await client.user.findUnique({
       where: {

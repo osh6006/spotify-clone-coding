@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Button from "../components/button";
 import Input from "../components/input";
@@ -17,7 +17,7 @@ const Enter = () => {
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm({ mode: "onBlur" });
+  } = useForm({ mode: "all" });
   const router = useRouter();
 
   const onValid = vilidform => {
@@ -26,13 +26,17 @@ const Enter = () => {
 
   const validateEmail = value => {
     loginCheck(value);
-
     if (emailData?.ok) {
       return "이미 존재하는 메일 주소 입니다.";
     }
   };
-  // console.log(errors, data, error);
-  // console.log(emailData);
+
+  useEffect(() => {
+    if (data?.ok) {
+      router.push("/login");
+    }
+  }, [data, router]);
+
   return (
     <div className="w-full h-full flex flex-col items-center p-10">
       <div className="w-[400px] flex flex-col items-center space-y-7">
