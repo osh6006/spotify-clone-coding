@@ -3,6 +3,9 @@ import withHandler from "../../../libs/server/withHandler";
 
 async function handler(req, res) {
   const { email, password, gender } = req.body;
+  const bcrypt = require("bcryptjs");
+  const hashedPassword = await bcrypt.hash(password, 5);
+  // const payload = Math.floor(100000 + Math.random() * 900000) + "";
   let user;
   if (email) {
     user = await client.user.findUnique({
@@ -17,13 +20,12 @@ async function handler(req, res) {
       user = await client.user.create({
         data: {
           email,
-          password,
+          password: hashedPassword,
           gender,
         },
       });
       res.json({ ok: true });
     }
-    console.log("hihi~");
   }
 }
 
